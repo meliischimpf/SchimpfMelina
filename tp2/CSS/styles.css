@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+body {
+    margin-top: 10px;
+    background-color: rgb(43, 50, 68);
+    background-position: center;
+    width: auto;
+    height: auto;
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    color: #a3ff4e;
+}
+
+p {
+    color: rgb(240, 255, 187);
+}
+
+.box {
+    box-sizing: border-box;
+    border: solid;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 75px;
+    width: 300px;
+    text-align: center;
+
+    color: #ffffff;
+}
