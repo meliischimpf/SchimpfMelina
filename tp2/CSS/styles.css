@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
 *{
     box-sizing: border-box;
     text-align: center;
@@ -5,6 +8,7 @@
 
 
 body {
+    font-family: 'Open Sans', sans-serif;
     margin-top: 10px;
     background-color: rgb(43, 50, 68);
     background-position: center;
@@ -23,11 +27,89 @@ p {
 }
 
 
+
+
+
+
+/* columns */ 
+
+.boxes {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	margin: 5px 0;
+}
+
+.box1, .box2, .box3 {
+	flex: 1;
+	margin: 2px;
+	padding: 10px;
+	&:first-child { margin-left: 0; }
+	&:last-child { margin-right: 0; }
+}
+
+
+@media screen and (max-width: 980px) {
+    .boxes .box1, .box2, .box3 {
+          margin-bottom: 5px;
+      flex-basis: 40%;
+          &:nth-last-child(2) {
+              margin-right: 0;
+          }
+          &:last-child {
+              flex-basis: 100%;
+              margin: 0;
+          }
+      }
+  }
+  
+  @media screen and (max-width: 680px) {
+    .boxes .box1, .box2, .box3 {
+          flex-basis: 100%;
+          margin: 0 0 5px 0;
+      }
+  }
+
+
+
+
+
+
+/*picture boxes*/
+
+.picture-box1 {
+    height: 300px;
+    width: 300px;
+    margin-top: 50px;
+    margin-left: 27%;
+    margin-right: auto;
+}
+
+.picture-box2 {
+    height: 300px;
+    width: 300px;
+   
+}
+
+.match-pic {
+    width: 600px;
+}
+
+.no-match-pic {
+    width: 600px;
+}
+
+
+
+
+
+/*information boxes*/
+
 .info-box1 {
     box-sizing: border-box;
     border: solid;
-    margin-top: 30px;
-    margin-left: 250px;
+    margin-top: 5%;
+    margin-left: 27%;
     margin-right: auto;
     height: 200px;
     width: 300px;
@@ -41,7 +123,7 @@ p {
     border: solid;
     margin-top: 30px;
     margin-left: auto;
-    margin-right: 250px;
+    margin-right: 100%;
     height: 200px;
     width: 300px;
     text-align: center;
@@ -51,39 +133,11 @@ p {
 
 .match-info {
     color: #a3ff4e;
-    margin-top: -400px;
-   
+    margin-top: 20%;
 }
 
 .no-match-info {
     color: #ff4e4e;
-    margin-top: -400px;
+    margin-top: 20%;
 }
 
-
-.picture-box1 {
-    height: 300px;
-    width: 300px;
-    margin-top: 50px;
-    margin-left: 250px;
-    margin-right: auto;
-}
-
-.picture-box2 {
-    height: 300px;
-    width: 300px;
-    margin-left: auto;
-    margin-right: 250px;
-    margin-top: -530px;
-}
-
-.match-pic {
-    width: 600px;
-    margin-top: -800px;
-    margin-bottom: 700;
-}
-
-.no-match-pic {
-    width: 600px;
-    margin-top: -800px;
-}
