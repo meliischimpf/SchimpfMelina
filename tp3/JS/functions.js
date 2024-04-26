@@ -54,11 +54,7 @@ fetch ('https://randomuser.me/api/')
            
 
     })
-       
+       .catch(error => console.log(error));
+        document.getElementById("error").innerHTML = "error: " + [error];
 
-        .catch((error) => {
-            console.error('Error:', error);
-
-     });
-
-}
+     }
