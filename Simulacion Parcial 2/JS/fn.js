@@ -44,7 +44,8 @@ function personaje2() {
         console.log (pj4, pj5, pj6);
         mostrarpersonaje2 (pj4, pj5, pj6);
 
-        }   
+        }  
+         
 }
 
 
@@ -69,6 +70,9 @@ function personaje2() {
             `;
 
       })
+
+        .catch(error => console.log(error));
+        document.getElementById("error").innerHTML = "error: " + [error];
     }
 
       function mostrarpersonaje2(pj4, pj5, pj6) {
@@ -91,7 +95,12 @@ function personaje2() {
                 </div>
                 `;
           })
+
+            .catch(error => console.log(error));
+            document.getElementById("error").innerHTML = "error: " + [error];
     }
+
+    
 
                  
     
