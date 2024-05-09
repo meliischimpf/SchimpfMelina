@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random User</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/leaflet.css">
+    <title>Simulacro Parcial</title>
 </head>
 <body>
+    <div class="texto">
+        <h1><b>Busqueda Personajes Rick & Morty</b></h1>
+        <p></p>
+        <p>Ingrese las ID's de tus personajes</p>
+        </div>
     
-    <section class="box">
 
-        <p style="font-size: 40px;"><b>Random User</b></p>
-        <button class="btn" onclick="Busqueda()">Buscar</button>
-        <div id="personaje"></div>
+        <section class="boxes"></section>
+            <div id="box1" class="box1">
+                <input type="number" id="personaje1">
+                <button id="boton1" onclick="personaje1()">Enviar</button>
+            </div>
+             
+            <div id="box2" class="box2">
+                <input type="number" id="personaje2">
+                <button id="boton2" onclick="personaje2()">Enviar</button>
+            </div>
 
-    </section>
 
-        <div id="mapa" style="height: 600px;"></div>
-
-        <div id="error" style="color: red;"></div>
+            <div id="error"></div>
+            
+        </section>
 </body>
-<script src="JS/functions.js" ></script>
-<script src="JS/leaflet.js"></script>
+<script src="JS/fn.js"></script>
 </html>

@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+*{
+    box-sizing: border-box;
+    text-align: center;
+    background-position: center;
+    background-color: #0F1A20;  
+}
+
+
+.body {
+    color:#6098FF;
+    font-family: 'Open Sans', sans-serif;
+    font-size:16px;
+    }
+
+
+h1 {
+    text-size-adjust: 100px;
+    color: rgb(190, 255, 228);
+}
+
+p {
+    color: rgb(190, 255, 228);
+    size: 150%;
+}
+
+
+/*button*/
+
+.btn{
+    background:#1AAB8A;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:50px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+}
+
+button:hover{
+    background:#fff;
+    color:#1AAB8A;
+}
+
+button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1AAB8A;
+    transition:400ms ease all;
+}
+
+
+button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+
+
+
+
+
+
+.picture-box {
+    height: 120px;
+    width: 120px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;  
+    border: solid;
+    border-radius: 10%;
+    color: #ffffff; 
+    height: 140px;
+    width: 140px;
+}
+
+.info-box {
+    box-sizing: border-box;
+    border: solid;
+    border-radius: 10%;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+    width: 300px;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.mapa {
+    margin-top: 30%;
+}
+
