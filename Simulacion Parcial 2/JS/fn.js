@@ -10,8 +10,8 @@ function personaje1() {
     const personaje1 = document.getElementById("personaje1").value;
     const boton1 = document.getElementById('boton1');
     
-  if (personaje1 <= ultimo && personaje1 >= primero){
-
+  if ((personaje1 <= ultimo) && (personaje1 >= primero) && (personaje1 !== array)){
+    
   array.push(personaje1);
 
     if (array.length == 3) {
@@ -22,6 +22,9 @@ function personaje1() {
       }
     }
 
+    else if (personaje1 == array){
+      alert ("Valor previamente ingresado");
+    }
     else {
       alert ("Error: Valor incorrecto");
     }
@@ -35,7 +38,8 @@ function personaje2() {
     const personaje2 = document.getElementById("personaje2").value;
     const boton2 = document.getElementById('boton2');
 
-  if (personaje2 < 827 && personaje2 > 0){
+  if ((personaje2 <= ultimo) && (personaje2 >= primero) && (personaje2 !== array2)){
+
 
   array2.push(personaje2);
 
@@ -49,7 +53,9 @@ function personaje2() {
           
       }   
     }  
-  
+  else if (personaje1 == array){
+    alert ("Valor previamente ingresado");
+  }
   else {
     alert ("Error: Valor incorrecto");
   }
@@ -82,8 +88,8 @@ function mostrarpersonaje(arraysuma) {
                           </div>
                           `;
                         }
-                        }
                       }
+                    }
 
                       
                   for (i = 0; i < data.length; i++){
@@ -98,15 +104,15 @@ function mostrarpersonaje(arraysuma) {
                           `;
                           
                         }
-
+                      }
                   }
-           }
         }
       )
     } 
       catch (error) {
+        error.innerHTML = 
+        `error: `+ error;
+      }
       
-      }{ 
-}
 }
           
