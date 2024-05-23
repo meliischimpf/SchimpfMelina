@@ -4,12 +4,13 @@
 
 
 class Persona {
-    constructor (name, lastname, gender, city, email){
+    constructor (name, lastname, gender, city, email, fecha_nacimiento){
         this.name = name;
         this.lastname = lastname;
         this.gender = gender;
         this.city = city;
         this.email = email;
+        this.fecha_nacimiento = fecha_nacimiento;
     }
 
 
@@ -20,15 +21,16 @@ class Persona {
         const anoActual = fecha.getFullYear();
         const mesActual = fecha.getMonth() + 1; 
         const diaActual = fecha.getDate();
-
-
         
-        let ano = anoActual - this.fecha_nacimiento;
+        const edad = anoActual - this.fecha_nacimiento.getFullYear();
             
-            if (mesActual <= this.fecha_nacimiento || diaActual < this.fecha_nacimiento) {
-                 ano = (ano - 1);
+            if (mesActual < this.fecha_nacimiento.getMonth() + 1 || 
+                (mesActual === this.fecha_nacimiento.getMonth() + 1 &&
+                 diaActual < this.fecha_nacimiento.getDate())) {
+                 edad;
             }
 
+            return edad;
     }
 
 }
@@ -92,21 +94,51 @@ fetch ('https://randomuser.me/api/')
 .then(data => {
 
         const datos = data.results[0];
+        
 
-        age = datos.dob.age;
+        const persona = new Persona(
+            datos.name.first,
+            datos.name.last,
+            datos.gender,
+            datos.location.city,
+            datos.email,
+            new Date(datos.dob.date)
+        );
 
-        if (age < 18) {
+        const edad = persona.getEdad();
 
-            let persona1 = new Cliente (datos.name.first, datos.name.last, datos.gender, datos.location.city, datos.email, datos.location.number);
-            console.log (persona1);
-            persona1.llamarC();
+
+        if (edad < 18) {
+
+            let cliente = new Cliente (
+                datos.name.first, 
+                datos.name.last, 
+                datos.gender, 
+                datos.location.city, 
+                datos.email, 
+                datos.location.number
+            );
+
+
+            
+
+            console.log (cliente);
+            cliente.llamarC();
         }
         
         else {
 
-            let persona1 = new Empleado (datos.name.first, datos.name.last, datos.gender, datos.location.city, datos.email, datos.location.postcode);
-            console.log (persona1);
-            persona1.llamarE();
+            let empleado = new Empleado (
+                datos.name.first, 
+                datos.name.last, 
+                datos.gender, 
+                datos.location.city, 
+                datos.email, 
+                datos.location.postcode
+            );
+
+            console.log (empleado);
+            empleado.llamarE();
 
         }
        
