@@ -28,62 +28,61 @@ class Cliente {
 
 }
 
-class Cuenta_Bancaria extends Cliente{
+class Cuenta_Bancaria extends Cliente {
     constructor(nombre, apellido, fecha_nacimiento, numCuenta, saldo){
         super (nombre, apellido, fecha_nacimiento, numCuenta);
 
         this.saldo = saldo;
     }
 
-consultarSaldo(){
-
-    return this.saldo;
-
-} 
 
 
-depositar(monto){                // Hasta $1.000
-    const cantidadDeposito = document.getElementById('cantidadDeposito').value;
+depositar(cantidadDeposito){                // Hasta $1.000
 
-    if (monto <= 0) {
+    if (cantidadDeposito <= 0) {
         throw new Error('El valor a depositar debe ser mayor que cero.');
     }
 
-    if (monto > 1000) {
+    if (cantidadDeposito > 1000) {
         error.innerHTML = `
         <p>Ingreso un monto más elevado que lo permitido.</p> 
         `;
     }
 
 
-    console.log (monto);
+    console.log (cantidadDeposito);
 
-    this.saldo += monto; 
+    this.saldo += Number(cantidadDeposito); 
+    console.log(this.saldo);
     return this.saldo;
 
     } 
     
-retirar(monto){              // Si el saldo es suficiente
-
-    
-    const cantidadRetiro = document.getElementById('cantidadRetiro').value;
+retirar(cantidadRetiro){              // Si el saldo es suficiente
 
 
-    if (monto <= 0) {
+    if (cantidadRetiro <= 0) {
         throw new Error('El valor a retirar debe ser mayor que cero.');
     }
     
-
-    if (monto > this.saldo) {
+    if (cantidadRetiro > this.saldo) {
         throw new Error('No tiene suficiente saldo para realizar esta operación.');
     }
-
     
-     console.log (monto);
+     console.log (cantidadRetiro);
 
-    this.saldo -= monto; 
+    this.saldo -= Number(cantidadRetiro); 
+    console.log(this.saldo);
     return this.saldo;
     
+} 
+
+
+consultarSaldo(){
+
+    console.log(this.saldo);
+    return this.saldo;
+
 } 
 
 }
@@ -91,19 +90,46 @@ retirar(monto){              // Si el saldo es suficiente
 
 
 
-function depositar (){
-    const cantidadDeposito = document.getElementById('cantidadDeposito').value;
-}
-
-function retirar(){
-    const cantidadRetiro = document.getElementById('cantidadRetiro').value;
-}
-
+//inicializar
 
 let cuenta = new Cuenta_Bancaria('Pedro', 'Lopez', '1997-10-05', '123456789', 500);
 
 
 console.log('Saldo actual:', cuenta.consultarSaldo());
+
+
+
+//funciones
+
+const saldo = cuenta.consultarSaldo();
+
+function consultarSaldo () {
+    cuenta.consultarSaldo();
+    mostrar.innerHTML = `<p> Su saldo actual es: ${saldo} </p>`;
+}
+
+function depositar (){
+    const cantidadDeposito = document.getElementById('cantidadDeposito').value;
+    cuenta.depositar (cantidadDeposito);
+
+}
+
+function retirar(){
+    const cantidadRetiro = document.getElementById('cantidadRetiro').value;
+    cuenta.retirar (cantidadRetiro);
+
+}
+
+
+
+/*localStorage.setItem("data", Json.stringify(data));
+let aux1 = localStorage.getItem("data");
+
+console.log (Json.parse(aux1));
+*/
+
+
+
 
 
 
@@ -116,7 +142,7 @@ console.log('Saldo actual:', cuenta.consultarSaldo());
 
 //trycatch
 
-
+/*
 try {
     cuenta.depositar(600);
     console.log('Nuevo saldo después del depósito:', cuenta.consultarSaldo());
@@ -132,4 +158,4 @@ try {
     console.error('Error al retirar:', error.message);
 }
 
-
+*/
