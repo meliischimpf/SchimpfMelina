@@ -26,6 +26,28 @@ class Cliente {
         this.numCuenta = numCuenta; // Si es mayor de edad el usuario
     }
 
+
+    getEdad(){
+    
+    const fecha = new Date();
+
+    const anoActual = fecha.getFullYear();
+    const mesActual = fecha.getMonth() + 1; 
+    const diaActual = fecha.getDate();
+    
+    const edad = anoActual - this.fecha_nacimiento.getFullYear();
+        
+        if (mesActual < this.fecha_nacimiento.getMonth() + 1 || 
+            (mesActual === this.fecha_nacimiento.getMonth() + 1 &&
+             diaActual < this.fecha_nacimiento.getDate())) 
+             {
+
+             edad -1;
+        }
+
+        return edad;
+
+    }
 }
 
 class Cuenta_Bancaria extends Cliente {
@@ -92,8 +114,7 @@ consultarSaldo(){
 
 //inicializar
 
-let cuenta = new Cuenta_Bancaria('Pedro', 'Lopez', '1997-10-05', '123456789', 500);
-
+let cuenta = new Cuenta_Bancaria('Pedro', 'Lopez', new Date (30, 10, 1997), '123456789', 500);
 
 console.log('Saldo actual:', cuenta.consultarSaldo());
 
@@ -105,7 +126,7 @@ const saldo = cuenta.consultarSaldo();
 
 function consultarSaldo () {
     cuenta.consultarSaldo();
-    mostrar.innerHTML = `<p> Su saldo actual es: ${saldo} </p>`;
+    mostrar.innerHTML = `<p> Su saldo actual es: ${cuenta.consultarSaldo()} </p>`;
 }
 
 function depositar (){
