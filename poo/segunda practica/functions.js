@@ -26,11 +26,14 @@ class Persona {
             
             if (mesActual < this.fecha_nacimiento.getMonth() + 1 || 
                 (mesActual === this.fecha_nacimiento.getMonth() + 1 &&
-                 diaActual < this.fecha_nacimiento.getDate())) {
-                 edad;
+                 diaActual < this.fecha_nacimiento.getDate())) 
+                 {
+
+                 edad -1;
             }
 
-            return edad;
+            return mostrar.innerHTML += `<p> Su edad es: ${edad}</p>`
+           
     }
 
 }
@@ -142,8 +145,8 @@ fetch ('https://randomuser.me/api/')
 
         }
        
-   
-
+   persona.getEdad();
+        console.log (datos.dob.age)
 })
 }
 

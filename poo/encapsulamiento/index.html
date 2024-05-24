@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco</title>
+</head>
+<body>
+    
+    <h1>Cuenta Bancaria</h1>
+
+    <section class="boxes">
+        <div class="ingresar">
+            <input type="number" id="depositar">
+            <button class="depositar"onclick="depositar()">Ingresar</button>
+        </div>
+        <div class="retirar">
+            <input type="number" id="retirar">
+            <button class="retirar" onclick="retirar()">Retirar</button>
+        </div>
+
+        <div id="mostrar" class="mostrar"></div>
+        <div id="error"></div>
+    </section>
+
+</body>
+<script src="functions.js"></script>
+</html>
