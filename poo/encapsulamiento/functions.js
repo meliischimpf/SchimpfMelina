@@ -35,53 +35,101 @@ class Cuenta_Bancaria extends Cliente{
         this.saldo = saldo;
     }
 
-consultar_Saldo(){
+consultarSaldo(){
 
     return this.saldo;
 
 } 
 
 
-depositar(){                // Hasta $1.000
-    const deposito = document.getElementById('depositar');
+depositar(monto){                // Hasta $1.000
+    const cantidadDeposito = document.getElementById('cantidadDeposito').value;
 
-    if (deposito > 1000) {
+    if (monto <= 0) {
+        throw new Error('El valor a depositar debe ser mayor que cero.');
+    }
+
+    if (monto > 1000) {
         error.innerHTML = `
-        <p>Ingreso un monto elevado</p> 
+        <p>Ingreso un monto más elevado que lo permitido.</p> 
         `;
     }
 
-    else {
-        this.saldo = this.saldo + deposito; 
 
-    }
-    console.log (deposito);
+    console.log (monto);
+
+    this.saldo += monto; 
     return this.saldo;
 
     } 
     
-retirar(){              // Si el saldo es suficiente
+retirar(monto){              // Si el saldo es suficiente
 
-    const retiro = document.getElementById('retirar');
+    
+    const cantidadRetiro = document.getElementById('cantidadRetiro').value;
 
-    if (retiro > saldo) {
-        error.innerHTML = `
-        <p>Ingreso un monto que no tiene</p> 
-        `;
+
+    if (monto <= 0) {
+        throw new Error('El valor a retirar debe ser mayor que cero.');
     }
     
-    else {
-        this.saldo = this.saldo - retiro; 
-    
+
+    if (monto > this.saldo) {
+        throw new Error('No tiene suficiente saldo para realizar esta operación.');
     }
-     console.log (retiro);
+
+    
+     console.log (monto);
+
+    this.saldo -= monto; 
     return this.saldo;
     
 } 
 
 }
 
-let cliente1 = new Cliente ('Pedro', 'Lopez', );
-let cuenta = new Cuenta_Bancaria ();
+
+
+
+function depositar (){
+    const cantidadDeposito = document.getElementById('cantidadDeposito').value;
+}
+
+function retirar(){
+    const cantidadRetiro = document.getElementById('cantidadRetiro').value;
+}
+
+
+let cuenta = new Cuenta_Bancaria('Pedro', 'Lopez', '1997-10-05', '123456789', 500);
+
+
+console.log('Saldo actual:', cuenta.consultarSaldo());
+
+
+
+
+
+
+
+
+
+
+//trycatch
+
+
+try {
+    cuenta.depositar(600);
+    console.log('Nuevo saldo después del depósito:', cuenta.consultarSaldo());
+} catch (error) {
+    console.error('Error al depositar:', error.message);
+}
+
+
+try {
+    cuenta.retirar(300);
+    console.log('Nuevo saldo después del retiro:', cuenta.consultarSaldo());
+} catch (error) {
+    console.error('Error al retirar:', error.message);
+}
 
 
