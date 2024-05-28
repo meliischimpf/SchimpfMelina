@@ -32,8 +32,11 @@ class Persona {
                  edad -1;
             }
 
-            return mostrar.innerHTML += `<p> Su edad es: ${edad}</p>`
-           
+            mostrar.innerHTML += `<p> Su edad es: ${edad}</p>`
+            console.log ("edad es:", edad)
+
+            return edad;
+            
     }
 
 }

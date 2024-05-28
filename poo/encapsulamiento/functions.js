@@ -52,9 +52,10 @@ class Cliente {
 
 class Cuenta_Bancaria extends Cliente {
     constructor(nombre, apellido, fecha_nacimiento, numCuenta, saldo){
-        super (nombre, apellido, fecha_nacimiento, numCuenta);
+        super (nombre, apellido, fecha_nacimiento);
 
         this.saldo = saldo;
+        
     }
 
 
@@ -66,9 +67,7 @@ depositar(cantidadDeposito){                // Hasta $1.000
     }
 
     if (cantidadDeposito > 1000) {
-        error.innerHTML = `
-        <p>Ingreso un monto más elevado que lo permitido.</p> 
-        `;
+        throw new Error('Ingreso un monto más elevado que lo permitido');
     }
 
 
@@ -114,7 +113,7 @@ consultarSaldo(){
 
 //inicializar
 
-let cuenta = new Cuenta_Bancaria('Pedro', 'Lopez', new Date (30, 10, 1997), '123456789', 500);
+let cuenta = new Cuenta_Bancaria('Pedro', 'Lopez', new Date (2003, 9, 30), '123456789', 500);
 
 console.log('Saldo actual:', cuenta.consultarSaldo());
 
@@ -126,17 +125,38 @@ const saldo = cuenta.consultarSaldo();
 
 function consultarSaldo () {
     cuenta.consultarSaldo();
-    mostrar.innerHTML = `<p> Su saldo actual es: ${cuenta.consultarSaldo()} </p>`;
+
+    if (cuenta.getEdad() < 18) {
+        alert('Debe tener al menos 18 años para tener una cuenta bancaria.');
+        return;
+    }
+
+    else {
+        mostrar.innerHTML = `<p> Su saldo actual es: ${cuenta.consultarSaldo()} </p>`;
+    }
+    
 }
 
 function depositar (){
     const cantidadDeposito = document.getElementById('cantidadDeposito').value;
+    
+    if (cuenta.getEdad() < 18) {
+        alert('Debe tener al menos 18 años para tener una cuenta bancaria.');
+        return;
+    }
+    
     cuenta.depositar (cantidadDeposito);
 
 }
 
 function retirar(){
     const cantidadRetiro = document.getElementById('cantidadRetiro').value;
+    
+    if (cuenta.getEdad() < 18) {
+        alert('Debe tener al menos 18 años para tener una cuenta bancaria.');
+        return;
+    }
+    
     cuenta.retirar (cantidadRetiro);
 
 }
