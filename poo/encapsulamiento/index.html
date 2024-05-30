@@ -9,7 +9,17 @@
     
     <h1>Cuenta Bancaria</h1>
 
-    <section class="boxes">
+
+    
+        <div class="datoscliente" id="datoscliente" style="display: block;">
+            <input type="text" id="nombre">
+            <input type="text" id="apellido">
+            <input type="date" id="fecha_nacimiento">
+            <button class="enviar" onclick="enviar()">Enviar</button>
+        </div>
+        
+   
+    <section class="boxes" id="boxes" style="display: none;">
         <div class="consultarSaldo">
             <button class="consultarSaldo" onclick="consultarSaldo()">Consultar Saldo</button>
         </div>

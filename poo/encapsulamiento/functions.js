@@ -35,7 +35,7 @@ class Cliente {
     const mesActual = fecha.getMonth() + 1; 
     const diaActual = fecha.getDate();
     
-    const edad = anoActual - this.fecha_nacimiento.getFullYear();
+    let edad = anoActual - this.fecha_nacimiento.getFullYear();
         
         if (mesActual < this.fecha_nacimiento.getMonth() + 1 || 
             (mesActual === this.fecha_nacimiento.getMonth() + 1 &&
@@ -111,39 +111,47 @@ consultarSaldo(){
 
 
 
-//inicializar
-
-let cuenta = new Cuenta_Bancaria('Pedro', 'Lopez', new Date (2003, 9, 30), '123456789', 500);
-
-console.log('Saldo actual:', cuenta.consultarSaldo());
-
-
-
 //funciones
 
-const saldo = cuenta.consultarSaldo();
+    const cliente = new Cliente(nombre, apellido,  new Date (fecha_nacimiento), '123456789');
+    
 
-function consultarSaldo () {
-    cuenta.consultarSaldo();
+
+function enviar(){
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const fecha_nacimiento = document.getElementById('fecha_nacimiento').value;
+
+    
+    
+    const edad = cliente.getEdad();
+    let cuenta = new Cuenta_Bancaria(nombre, apellido, new Date (fecha_nacimiento), '123456789', 500);
+    
+    console.log (nombre, apellido, fecha_nacimiento);
+    console.log (cuenta.getEdad);
+
 
     if (cuenta.getEdad() < 18) {
-        alert('Debe tener al menos 18 años para tener una cuenta bancaria.');
-        return;
+        return alert('Debe tener al menos 18 años para tener una cuenta bancaria.');
+    }
+    else {
+        document.getElementById('boxes').style.display = 'block';
+        document.getElementById('datoscliente').style.display = 'none';
     }
 
-    else {
-        mostrar.innerHTML = `<p> Su saldo actual es: ${cuenta.consultarSaldo()} </p>`;
-    }
-    
+}
+
+const cuenta = new Cuenta_Bancaria(nombre, apellido, new Date (fecha_nacimiento), '123456789', 500);
+
+
+function consultarSaldo (){
+    cuenta.consultarSaldo();
+
+    mostrar.innerHTML = `<p> Su saldo actual es: ${cuenta.consultarSaldo()} </p>`;
 }
 
 function depositar (){
     const cantidadDeposito = document.getElementById('cantidadDeposito').value;
-    
-    if (cuenta.getEdad() < 18) {
-        alert('Debe tener al menos 18 años para tener una cuenta bancaria.');
-        return;
-    }
     
     cuenta.depositar (cantidadDeposito);
 
@@ -151,12 +159,7 @@ function depositar (){
 
 function retirar(){
     const cantidadRetiro = document.getElementById('cantidadRetiro').value;
-    
-    if (cuenta.getEdad() < 18) {
-        alert('Debe tener al menos 18 años para tener una cuenta bancaria.');
-        return;
-    }
-    
+
     cuenta.retirar (cantidadRetiro);
 
 }
