@@ -63,19 +63,26 @@ class Cuenta_Bancaria extends Cliente {
 depositar(cantidadDeposito){                // Hasta $1.000
 
     if (cantidadDeposito <= 0) {
-        throw new Error('El valor a depositar debe ser mayor que cero.');
+        return alert ('El valor a depositar debe ser mayor que cero.');
     }
 
-    if (cantidadDeposito > 1000) {
-        throw new Error('Ingreso un monto más elevado que lo permitido');
+    if (cantidadDeposito >= 1000) {
+        return alert ('Ingreso un monto más elevado que lo permitido');
     }
 
 
+    
+
+    
+        
     console.log (cantidadDeposito);
+    console.log(this.saldo);
 
     this.saldo += Number(cantidadDeposito); 
-    console.log(this.saldo);
     return this.saldo;
+   
+    
+    
 
     } 
     
@@ -83,17 +90,17 @@ retirar(cantidadRetiro){              // Si el saldo es suficiente
 
 
     if (cantidadRetiro <= 0) {
-        throw new Error('El valor a retirar debe ser mayor que cero.');
+        return alert ('El valor a retirar debe ser mayor que cero.');
     }
     
-    if (cantidadRetiro > this.saldo) {
-        throw new Error('No tiene suficiente saldo para realizar esta operación.');
+    if (cantidadRetiro >= this.saldo) {
+        return alert ('No tiene suficiente saldo para realizar esta operación.');
     }
     
-     console.log (cantidadRetiro);
+    console.log (cantidadRetiro);
+    console.log(this.saldo);
 
     this.saldo -= Number(cantidadRetiro); 
-    console.log(this.saldo);
     return this.saldo;
     
 } 
@@ -124,7 +131,7 @@ function enviar(){
 
     
     
-    const edad = cliente.getEdad();
+    
     let cuenta = new Cuenta_Bancaria(nombre, apellido, new Date (fecha_nacimiento), '123456789', 500);
     
     console.log (nombre, apellido, fecha_nacimiento);
@@ -134,6 +141,12 @@ function enviar(){
     if (cuenta.getEdad() < 18) {
         return alert('Debe tener al menos 18 años para tener una cuenta bancaria.');
     }
+
+    if (fecha_nacimiento == '' || nombre == ''|| apellido == ''){
+        return alert ('Ingrese un parámetro válido');
+    }
+        
+
     else {
         document.getElementById('boxes').style.display = 'block';
         document.getElementById('datoscliente').style.display = 'none';
@@ -147,7 +160,7 @@ const cuenta = new Cuenta_Bancaria(nombre, apellido, new Date (fecha_nacimiento)
 function consultarSaldo (){
     cuenta.consultarSaldo();
 
-    mostrar.innerHTML = `<p> Su saldo actual es: ${cuenta.consultarSaldo()} </p>`;
+    mostrar.innerHTML = `Su saldo actual es: $${cuenta.consultarSaldo()}`;
 }
 
 function depositar (){
