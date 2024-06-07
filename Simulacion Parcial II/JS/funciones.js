@@ -20,12 +20,12 @@ function busqueda () {
                 if (data[i].gender === "female"){
                     mujeres ++;
 
-                    const nombremujeres = [data[i].name.first];
-                    const apellidomujeres = [data[i].name.last];
+                    nombremujeres.push (data[i].name.first)
+                    apellidomujeres.push (data[i].name.last)
 
                     console.log (nombremujeres, apellidomujeres);
 
-                    female.innerHTML = `<h3>Nombre mujeres: ${data[i].name.first}, ${data[i].name.last}</h3>`
+                    female.innerHTML = `<h3>Nombre mujeres: ${nombremujeres},  ${apellidomujeres}</h3>`
                             }
 
                  if (data[i].gender === "male"){
