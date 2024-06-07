@@ -9,7 +9,7 @@ function mayor() {
 
     if (array.length == 3) {
 
-        var max = Math.max (array[0]);
+        var max = array[0];
 
         for (i = 1; i < array.length; i++) {
             if (array[i] > max) {

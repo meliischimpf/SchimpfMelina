@@ -13,15 +13,21 @@ function busquedaRyM (){
 
         
             var nombresrym = [data[0].name, data[1].name, data[2].name]
-            nombresrym.sort (function(a, b) { b - a
+            
+           
+            nombreMayor = nombresrym.sort ()
+            nombreMayor = nombresrym[2];
+                
+            
+            
               
-            const nombreMayor = nombresrym[0];
+            
             console.log ("Nombres:", nombresrym);
             box1.innerHTML = `<p> El personaje mayor es: ${nombreMayor}</p>`
 
-       } )}
-            )}
-
+       } 
+    )}
+          
         
 
 
@@ -30,30 +36,34 @@ function busquedaRandomUser (){
     .then (res => res.json())
     .then (data => {
     
-        var edades = [];
-        var edades = [data.results[0].dob.age, data.results[1].dob.age, data.results[2].dob.age]
+        const edades = [];
+        var edadMayor = 0;
         
-        edades.sort;
-        edadMayor = edades[0];
-
-        console.log ("", edades);
         
+        for  (let i = 0; i < 3 ; i++) {
+           
+            edades.push(data.results[i].dob.age);
+            console.log(edades);
+        
+        
+                for (let j = 0; j < 3; j++) {
+                
+                    if (edades[j] > edadMayor) {
+                        edadMayor = edades[j];
+                        console.log (edadMayor);
 
-    box2.innerHTML = `<p> El personaje mayor es: ${edadMayor}</p>`
+                        }
+                    }
+           
+        }
+
+    console.log ("mayor: ", edadMayor);
+    box2.innerHTML = `<p> El personaje con mayor edad tiene: ${edadMayor}</p>`
 
 
 
-    /*for (let i = 0; i < 3; i++){
 
-       if (edades [i] > edades [0]) {
-        edadMayor = edades [i];	
-        console.log ("mayor: ", edadMayor)
-        } 
-    } */   
-
-    
-
-    })
+})
 
 
 }
