@@ -1,10 +1,26 @@
 <?php
 
 
-$usuario = $_POST["user"];
-echo $usuario;
+//$aux = $_SERVER;
+//var_dump($aux);
 
+
+$usuario = $_POST["user"];
 $contrasenia = $_POST["password"];
-echo $contrasenia;
+
+$aux = isset ($_POST ['check']);
+
+
+if ($aux == true){
+    
+    echo $usuario;
+    echo $contrasenia;
+
+}
+
+if ($aux == false) {
+    echo ("No es posible ingresar sin aceptar terminos y condiciones");
+}
+
 
 ?>
