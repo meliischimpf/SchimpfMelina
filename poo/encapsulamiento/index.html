@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Banco</title>
+</head>
+<body>
+    
+    <h1>🪙 Bancazo 🏦</h1>
+        <h4>pa la rocha beso' 💋 </h4>
+        <h6>pa lo gile' rafagazo 💥🔫</h6>
+
+
+    
+        <div class="datoscliente" id="datoscliente" style="display: block;">
+            <h3> Registrar Cuenta </h3>
+            <input type="text" id="nombre">
+            <input type="text" id="apellido">
+            <input type="date" id="fecha_nacimiento">
+            <button class="enviar" onclick="enviar()">Iniciar Sesión</button>
+        </div>
+        
+   
+    <div class="boxes" id="boxes" style="display: none;">
+        <h3>Realizar Movimientos</h3>
+            <button class="consultarSaldo" onclick="consultarSaldo()">🧾Consultar Saldo💰</button>
+            <h3 id="mostrar" class="mostrar"></h3>
+        
+            <input type="number" id="cantidadDeposito">
+            <button class="depositar"onclick="depositar()">Ingresar💵</button>
+        
+            <input type="number" id="cantidadRetiro">
+            <button class="retirar" onclick="retirar()">Retirar💸</button>
+    </div>
+
+</body>
+<script src="functions.js"></script>
+</html>
