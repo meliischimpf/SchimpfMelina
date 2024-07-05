@@ -11,6 +11,7 @@ $contrasenia = $_POST["password"];
 $aux = isset ($_POST ['check']);
 
 
+
 if ($aux == true){
     
     //echo $usuario;
@@ -18,9 +19,9 @@ if ($aux == true){
 
     $sql = "select * from usuarios where dni = $contrasenia";
     $resultado = $conexion -> query($sql);
-
+    $cantidad = mysqli_num_rows($resultado);
     
-    for ($i=0; $i < 2; $i++) { 
+    for ($i=0; $i > $cantidad; $i++) { 
         
         $row = $resultado -> fetch_assoc();
         echo $row ['nombre']."<br>";
