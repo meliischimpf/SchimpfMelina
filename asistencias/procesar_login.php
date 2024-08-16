@@ -31,14 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
 
         // Obtener el resultado
-        $usuario_db = $stmt->fetch(PDO::FETCH_ASSOC);
+        $usuario_db = $stmt->fetch(PDO::FETCH_ASSOC); //devuelve todos los asociados (array asiciativo = nombre de campo y valor)
         //die(var_dump($usuario_db));
         // Verificar si se encontró el usuario y si la contraseña coincide
         //if ($usuario_db && password_verify($contrasena, $usuario_db['contrasena'])) {
         if ($usuario_db['contrasena'] == $contrasena) {
             // Establecer variables de sesión
             //$_SESSION["usuario"] = $usuario;
-            echo "Login exitoso.";
+            //                echo "Login exitoso.";
             // Redirigir al usuario a otra página después del login exitoso
             header("Location: insert_alumno.php");
             exit();
