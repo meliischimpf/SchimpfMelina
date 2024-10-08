@@ -12,8 +12,8 @@ function clean_input($data) {
 // Verificar si se recibieron los valores por POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los valores enviados por POST
-    $usuario = clean_input($_POST["usuario"]);
-    $contrasena = clean_input($_POST["contrasena"]);
+    $mail = clean_input($_POST["mail"]);
+    $password = clean_input($_POST["password"]);
 
     // Crear una instancia de la clase Database
     $database = new Database();
@@ -23,23 +23,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
     
         // Preparar la consulta SQL
-        $stmt = $conn->prepare('SELECT * FROM usuarios WHERE usuario = :usuario');
+        $stmt = $conn->prepare('SELECT * FROM usuarios WHERE mail = :mail');
         // Vincular los parámetros
-        $stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+        $stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
         // Ejecutar la consulta
         $stmt->execute();
 
-        // Obtener el resultado
-        $usuario_db = $stmt->fetch(PDO::FETCH_ASSOC); //devuelve todos los asociados (array asiciativo = nombre de campo y valor)
-        //die(var_dump($usuario_db));
-        // Verificar si se encontró el usuario y si la contraseña coincide
-        //if ($usuario_db && password_verify($contrasena, $usuario_db['contrasena'])) {
-        if ($usuario_db['contrasena'] == $contrasena) {
-            // Establecer variables de sesión
-            //$_SESSION["usuario"] = $usuario;
-            //                echo "Login exitoso.";
-            // Redirigir al usuario a otra página después del login exitoso
-            header("Location: insert_alumno.php");
+  
+        $mail_db = $stmt->fetch(PDO::FETCH_ASSOC); 
+        if ($mail_db['password'] == $password) {
+            header("Location: menu/menu.php");
             exit();
         } else {
             echo "Error: Usuario o contraseña inválidos.";

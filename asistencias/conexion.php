@@ -1,7 +1,7 @@
 <?php
 
 class Database {
-    private $host = 'localhost';
+    private $host = '127.0.0.1';
     private $db_name = 'asistencia';
     private $username = 'root';
     private $password = '';
@@ -18,7 +18,7 @@ class Database {
         } 
         
         catch(PDOException $e) {
-            echo "Error de conexión: " . $e->getMessage();
+            echo "Error de conexión: " . $e->getCode();
         }
 
         return $this->conn;
