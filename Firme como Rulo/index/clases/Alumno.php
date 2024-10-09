@@ -54,17 +54,29 @@ class Alumno {
         $db = new Database();
         $conn = $db->connect();
     
-        // si está vacío asigna 0
-        $parcial1 = !empty($parcial1) ? $parcial1 : 0; 
-        $parcial2 = !empty($parcial2) ? $parcial2 : 0; 
-        $final = !empty($final) ? $final : 0; 
+        $querySelect = "SELECT parcial1, parcial2, final FROM calificaciones WHERE id_alumno = :id_alumno AND id_materia = :id_materia";
+        $stmtSelect = $conn->prepare($querySelect);
+        $stmtSelect->bindParam(':id_alumno', $id_alumno, PDO::PARAM_INT);
+        $stmtSelect->bindParam(':id_materia', $id_materia, PDO::PARAM_INT);
+        $stmtSelect->execute();
+        $existingRow = $stmtSelect->fetch(PDO::FETCH_ASSOC);
+        
+        if ($existingRow) {
+            $parcial1 = !empty($parcial1) ? $parcial1 : $existingRow['parcial1'];
+            $parcial2 = !empty($parcial2) ? $parcial2 : $existingRow['parcial2'];
+            $final = !empty($final) ? $final : $existingRow['final'];
+        } else {
+            $parcial1 = !empty($parcial1) ? $parcial1 : 0;
+            $parcial2 = !empty($parcial2) ? $parcial2 : 0;
+            $final = !empty($final) ? $final : 0;
+        }
     
         $query = "INSERT INTO calificaciones (id_alumno, id_materia, parcial1, parcial2, final) 
-        VALUES (:id_alumno, :id_materia, :parcial1, :parcial2, :final) 
-        ON DUPLICATE KEY UPDATE 
-        parcial1 = :nuevo_parcial1, 
-        parcial2 = :nuevo_parcial2, 
-        final = :nuevo_final";
+                  VALUES (:id_alumno, :id_materia, :parcial1, :parcial2, :final) 
+                  ON DUPLICATE KEY UPDATE 
+                  parcial1 = :new_parcial1, 
+                  parcial2 = :new_parcial2, 
+                  final = :new_final";
     
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':id_alumno', $id_alumno, PDO::PARAM_INT);
@@ -73,12 +85,13 @@ class Alumno {
         $stmt->bindParam(':parcial2', $parcial2, PDO::PARAM_STR);
         $stmt->bindParam(':final', $final, PDO::PARAM_STR);
         
-        $stmt->bindParam(':nuevo_parcial1', $parcial1, PDO::PARAM_STR);
-        $stmt->bindParam(':nuevo_parcial2', $parcial2, PDO::PARAM_STR);
-        $stmt->bindParam(':nuevo_final', $final, PDO::PARAM_STR);
+        $stmt->bindParam(':new_parcial1', $parcial1, PDO::PARAM_STR);
+        $stmt->bindParam(':new_parcial2', $parcial2, PDO::PARAM_STR);
+        $stmt->bindParam(':new_final', $final, PDO::PARAM_STR);
         
         $stmt->execute();
     }
+    
 }
 
 ?>
