@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Banco</title>
     <link href="https://fonts.googleapis.com/css?family=Karla:400" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../../resources/menu/registros/forms.css">
+    <link rel="stylesheet" href="../../resources/menu/registrar/forms.css">
+    <link rel="icon" href="../../resources/img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
