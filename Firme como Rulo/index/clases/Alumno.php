@@ -91,7 +91,52 @@ class Alumno {
         
         $stmt->execute();
     }
+ 
+    public static function darBaja($id_alumno) {
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/conexion.php';
+        
+        $db = new Database();
+        $conn = $db->connect();
     
+        if (!$conn) {
+            error_log("Error al conectar a la base de datos.");
+            return false;
+        }
+    
+        try {
+            // Verificar si el alumno existe
+            $checkQuery = "SELECT COUNT(*) FROM alumno WHERE id_alumno = :id_alumno";
+            $checkStmt = $conn->prepare($checkQuery);
+            $checkStmt->bindParam(':id_alumno', $id_alumno, PDO::PARAM_INT);
+            $checkStmt->execute();
+            $exists = $checkStmt->fetchColumn();
+    
+            if ($exists == 0) {
+                error_log("El alumno con ID $id_alumno no existe.");
+                return false;
+            }
+    
+            // Eliminar el registro del alumno
+            $query = "DELETE FROM alumno WHERE id_alumno = :id_alumno";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':id_alumno', $id_alumno, PDO::PARAM_INT);
+    
+            if ($stmt->execute()) {
+                error_log("El alumno con ID $id_alumno fue eliminado correctamente.");
+                return true;
+            } else {
+                error_log("Error al ejecutar la consulta de eliminación.");
+                return false;
+            }
+        } catch (PDOException $e) {
+            error_log("Error al dar de baja al alumno: " . $e->getMessage());
+            return false;
+        }
+    }
+        
+    
+
+
 }
 
 ?>
