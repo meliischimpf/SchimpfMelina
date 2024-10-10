@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Alumno</title>
     <link href="https://fonts.googleapis.com/css?family=Karla:400" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../../resources/menu/registros/forms.css">
+    <link rel="stylesheet" href="../../resources/menu/registrar/forms.css">
 </head>
 
 <body>
