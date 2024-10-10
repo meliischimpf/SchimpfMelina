@@ -173,24 +173,30 @@
                 <form method="post" action="">
                     <input type="hidden" name="id_materia" value="<?php echo $id_materia; ?>">
                     <h4>Alumnos Inscriptos</h4>
-                    <ul>
-                        <?php foreach ($alumnos as $alumno): ?>
-                          
-                          <li>
-                              <?php echo $alumno['apellido_alumno'] . " " . $alumno['nombre_alumno']; ?>
-                              <input type="checkbox" name="asistencia[<?php echo $alumno['id_alumno']; ?>]" value="1" 
-                                    onchange="registrarAsistencia(<?php echo $alumno['id_alumno']; ?>, <?php echo $id_materia; ?>, this.checked)" 
-                                    <?php
-                                    // marca checkbox si la asistencia ya está registrada
-                                    $stmt_asistencia = $conn->prepare("SELECT * FROM asistencias WHERE id_alumno = :id_alumno AND id_materia = :id_materia AND fecha_asistencia = CURDATE()");
-                                    $stmt_asistencia->bindParam(':id_alumno', $alumno['id_alumno'], PDO::PARAM_INT);
-                                    $stmt_asistencia->bindParam(':id_materia', $id_materia, PDO::PARAM_INT);
-                                    $stmt_asistencia->execute();
-                                    echo ($stmt_asistencia->rowCount() > 0) ? 'checked' : '';
-                                    ?>>
-                        </li>
+                    <table>
+                    <thead>
+                    <tr>
+                        <th>Apellido y Nombre</th>
+                        <th>Presente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($alumnos as $alumno): ?>
+                        <tr>
+                            <td><?php echo $alumno['apellido_alumno'] . ", " . $alumno['nombre_alumno']; ?></td>
+                            <td><input type="checkbox" name="asistencia[<?php echo $alumno['id_alumno']; ?>]" value="1" 
+                                onchange="registrarAsistencia(<?php echo $alumno['id_alumno']; ?>, <?php echo $id_materia; ?>, this.checked)" 
+                                <?php
+                                // marca checkbox si la asistencia ya está registrada
+                                $stmt_asistencia = $conn->prepare("SELECT * FROM asistencias WHERE id_alumno = :id_alumno AND id_materia = :id_materia AND fecha_asistencia = CURDATE()");
+                                $stmt_asistencia->bindParam(':id_alumno', $alumno['id_alumno'], PDO::PARAM_INT);
+                                $stmt_asistencia->bindParam(':id_materia', $id_materia, PDO::PARAM_INT);
+                                $stmt_asistencia->execute();
+                                echo ($stmt_asistencia->rowCount() > 0) ? 'checked' : '';
+                                ?>>                                    
+                            </td>
                         <?php endforeach; ?>
-                    </ul>
+                    </tr>
                 </form>
             <?php else: ?>
                 <p>No hay alumnos registrados para esta materia.</p>

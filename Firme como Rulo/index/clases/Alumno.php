@@ -92,6 +92,8 @@ class Alumno {
         $stmt->execute();
     }
  
+
+    
     public static function darBaja($id_alumno) {
         require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/conexion.php';
         
@@ -133,10 +135,6 @@ class Alumno {
             return false;
         }
     }
-        
-    
-
-
 }
 
 ?>

@@ -194,8 +194,8 @@ if (isset($_POST['id_materia']) && !empty($_POST['id_materia'])) {
     ?>
         <form method="post" action="">
             <input type="hidden" name="id_materia" value="<?php echo $id_materia; ?>">
-            <h4>Alumnos Inscriptos</h4>
-            <h5>Cantidad de Clases:  <?php echo $total_clases; ?></h5>
+            <h2>Alumnos Inscriptos</h2>
+            <h4>Cantidad de Clases:  <?php echo $total_clases; ?></h4>
             <table>
                 <thead>
                     <tr>
@@ -211,7 +211,7 @@ if (isset($_POST['id_materia']) && !empty($_POST['id_materia'])) {
                 <tbody>
                     <?php foreach ($alumnos as $alumno): ?>
                         <tr>
-                            <td><?php echo $alumno['apellido_alumno'] . " " . $alumno['nombre_alumno']; ?></td>
+                            <td><?php echo $alumno['apellido_alumno'] . ", " . $alumno['nombre_alumno']; ?></td>
                             <td><?php echo calcularPorcentajeAsistencia($alumno['id_alumno'], $id_materia, $conn); ?>%</td>
                             <td>
                                 <?php
@@ -261,9 +261,9 @@ if (isset($_POST['id_materia']) && !empty($_POST['id_materia'])) {
                                 $parametros = $stmt_parametros->fetch(PDO::FETCH_ASSOC);
 
                                 if ($calificacion['final'] >= $parametros['regular']) {
-                                    echo "Aprobado";
+                                    echo "Aprobado" . " - " . $calificacion['final'];
                                 } else {
-                                    echo "Desaprobado";
+                                    echo "Desaprobado" . " - " . $calificacion['final'];
                                 }
                                 
                                 // para mostrar las notas del final

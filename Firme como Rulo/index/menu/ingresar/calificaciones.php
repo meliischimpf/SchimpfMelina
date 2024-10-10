@@ -156,7 +156,7 @@
             $stmt_alumnos->execute();
             $alumnos = $stmt_alumnos->fetchAll(PDO::FETCH_ASSOC);
 
-            // Lógica para manejar las asistencias
+            // Lógica para manejar las calificaciones
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (isset($_POST['notas'])) {
                     foreach ($_POST['notas'] as $id_alumno => $notas) {
@@ -173,19 +173,24 @@
                 <form method="post" action="">
                     <input type="hidden" name="id_materia" value="<?php echo $id_materia; ?>">
                     <h4>Ingresar Notas</h4>
-                    <ul>
-                        <?php foreach ($alumnos as $alumno): ?>
-                            <li>
-                                <?php echo $alumno['apellido_alumno'] . " " . $alumno['nombre_alumno']; ?>
-                                <label>Nota 1:</label>
-                                <input type="text" name="notas[<?php echo $alumno['id_alumno']; ?>][nota1]" value="">
-                                <label>Nota 2:</label>
-                                <input type="text" name="notas[<?php echo $alumno['id_alumno']; ?>][nota2]" value="">
-                                <label>Nota Final:</label>
-                                <input type="text" name="notas[<?php echo $alumno['id_alumno']; ?>][nota_final]" value="">
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+                    <table>
+                    <thead>
+                    <tr>
+                        <th>Apellido y Nombre</th>
+                        <th>Parcial 1</th>
+                        <th>Parcial 2</th>
+                        <th>Final</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($alumnos as $alumno): ?>
+                        <tr>
+                            <td><?php echo $alumno['apellido_alumno'] . ", " . $alumno['nombre_alumno']; ?></td>
+                            <td><input type="text" name="notas[<?php echo $alumno['id_alumno']; ?>][nota1]" value=""></td>
+                            <td><input type="text" name="notas[<?php echo $alumno['id_alumno']; ?>][nota2]" value=""></td>
+                            <td><input type="text" name="notas[<?php echo $alumno['id_alumno']; ?>][nota_final]" value=""></td>
+                         <?php endforeach; ?>
+                    </tr>
                     <input type="submit" value="Guardar Notas">
                 </form>
             <?php else: ?>
