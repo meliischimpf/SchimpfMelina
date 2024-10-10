@@ -85,28 +85,28 @@
       <h2>Seguimiento</h2>
       
       <?php
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/conexion.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/clases/Alumno.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/conexion.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/clases/Alumno.php';
 
-        $db = new Database();
-        $conn = $db->connect();
+$db = new Database();
+$conn = $db->connect();
 
-        // institutos
-        $stmt_institutos = $conn->prepare("SELECT id_instituto, nombre_instituto FROM instituto");
-        $stmt_institutos->execute();
-        $result_institutos = $stmt_institutos->fetchAll(PDO::FETCH_ASSOC);
+// institutos
+$stmt_institutos = $conn->prepare("SELECT id_instituto, nombre_instituto FROM instituto");
+$stmt_institutos->execute();
+$result_institutos = $stmt_institutos->fetchAll(PDO::FETCH_ASSOC);
 
-        $materias = [];
+$materias = [];
 
-        if (isset($_POST['id_instituto']) && !empty($_POST['id_instituto'])) {
-            $id_instituto = $_POST['id_instituto'];
+if (isset($_POST['id_instituto']) && !empty($_POST['id_instituto'])) {
+    $id_instituto = $_POST['id_instituto'];
 
-            // materias del instituto
-            $stmt_materias = $conn->prepare("SELECT id_materia, nombre_materia FROM materias WHERE id_instituto = :id_instituto");
-            $stmt_materias->bindParam(':id_instituto', $id_instituto, PDO::PARAM_INT);
-            $stmt_materias->execute();
-            $materias = $stmt_materias->fetchAll(PDO::FETCH_ASSOC);
-        }
+    // materias del instituto
+    $stmt_materias = $conn->prepare("SELECT id_materia, nombre_materia FROM materias WHERE id_instituto = :id_instituto");
+    $stmt_materias->bindParam(':id_instituto', $id_instituto, PDO::PARAM_INT);
+    $stmt_materias->execute();
+    $materias = $stmt_materias->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
 
 <form method="post" action="">
@@ -170,9 +170,8 @@ if (isset($_POST['id_materia']) && !empty($_POST['id_materia'])) {
         $stmt_total_clases->execute();
         $total_clases = $stmt_total_clases->fetch(PDO::FETCH_ASSOC)['total_clases'];
 
-        // porcentaje de asistencia
-        $porcentaje_asistencia = ($total_clases > 0) ? ($asistencias / $total_clases) * 100 : 0;
-        return $porcentaje_asistencia;
+        // porcentaje de asistencia    
+        return ($total_clases > 0) ? round(($asistencias / $total_clases) * 100) : 0;
     }
 
     function calcularCondicionCalificacion($calificacion, $parametros) {
@@ -186,65 +185,97 @@ if (isset($_POST['id_materia']) && !empty($_POST['id_materia'])) {
     }
 
     // tabla
-        if (!empty($alumnos)): ?>
-            <form method="post" action="">
-                <input type="hidden" name="id_materia" value="<?php echo $id_materia; ?>">
-                <h4>Alumnos Inscriptos</h4>
-                <table>
-                    <thead>
+    if (!empty($alumnos)): 
+        // Obtener total de clases para mostrar en la tabla
+        $stmt_total_clases = $conn->prepare("SELECT COUNT(DISTINCT fecha_asistencia) AS total_clases FROM asistencias WHERE id_materia = :id_materia");
+        $stmt_total_clases->bindParam(':id_materia', $id_materia, PDO::PARAM_INT);
+        $stmt_total_clases->execute();
+        $total_clases = $stmt_total_clases->fetch(PDO::FETCH_ASSOC)['total_clases'];
+    ?>
+        <form method="post" action="">
+            <input type="hidden" name="id_materia" value="<?php echo $id_materia; ?>">
+            <h4>Alumnos Inscriptos</h4>
+            <h5>Cantidad de Clases:  <?php echo $total_clases; ?></h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Apellido y Nombre</th>
+                        <th>Asistencia (%)</th>
+                        <th>Calificaciones</th>
+                        <th>Asistencias</th>
+                        <th>Calificaciones</th>
+                        <th>Final</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($alumnos as $alumno): ?>
                         <tr>
-                            <th>Apellido y Nombre</th>
-                            <th>Asistencia (%)</th>
-                            <th>Calificaciones</th>
-                            <th>Condición (Asistencias)</th>
-                            <th>Condición (Calificaciones)</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($alumnos as $alumno): ?>
-                            <tr>
-                                <td><?php echo $alumno['apellido_alumno'] . " " . $alumno['nombre_alumno']; ?></td>
-                                <td><?php echo calcularPorcentajeAsistencia($alumno['id_alumno'], $id_materia, $conn); ?>%</td>
-                                <td>
-                                    <?php
-                                    // calificaciones
-                                    $stmt_calificaciones = $conn->prepare("SELECT parcial1, parcial2 FROM calificaciones WHERE id_alumno = :id_alumno AND id_materia = :id_materia");
-                                    $stmt_calificaciones->bindParam(':id_alumno', $alumno['id_alumno'], PDO::PARAM_INT);
-                                    $stmt_calificaciones->bindParam(':id_materia', $id_materia, PDO::PARAM_INT);
-                                    $stmt_calificaciones->execute();
-                                    $calificacion = $stmt_calificaciones->fetch(PDO::FETCH_ASSOC);
-                                    echo !empty($calificacion) ? $calificacion['parcial1'] . " - " . $calificacion['parcial2'] : "No hay calificaciones";
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php
-                                    // condición asistencias
-                                    $porcentaje_asistencia = calcularPorcentajeAsistencia($alumno['id_alumno'], $id_materia, $conn);
-                                    $stmt_parametros = $conn->prepare("SELECT * FROM parametros WHERE id_instituto = :id_instituto");
-                                    $stmt_parametros->bindParam(':id_instituto', $id_instituto, PDO::PARAM_INT);
-                                    $stmt_parametros->execute();
-                                    $parametros = $stmt_parametros->fetch(PDO::FETCH_ASSOC);
+                            <td><?php echo $alumno['apellido_alumno'] . " " . $alumno['nombre_alumno']; ?></td>
+                            <td><?php echo calcularPorcentajeAsistencia($alumno['id_alumno'], $id_materia, $conn); ?>%</td>
+                            <td>
+                                <?php
+                                // calificaciones
+                                $stmt_calificaciones = $conn->prepare("SELECT parcial1, parcial2, final FROM calificaciones WHERE id_alumno = :id_alumno AND id_materia = :id_materia");
+                                $stmt_calificaciones->bindParam(':id_alumno', $alumno['id_alumno'], PDO::PARAM_INT);
+                                $stmt_calificaciones->bindParam(':id_materia', $id_materia, PDO::PARAM_INT);
+                                $stmt_calificaciones->execute();
+                                $calificacion = $stmt_calificaciones->fetch(PDO::FETCH_ASSOC);
+                                echo !empty($calificacion) ? $calificacion['parcial1'] . " - " . $calificacion['parcial2'] : "No hay calificaciones";
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                // condición asistencias
+                                $porcentaje_asistencia = calcularPorcentajeAsistencia($alumno['id_alumno'], $id_materia, $conn);
+                                $stmt_parametros = $conn->prepare("SELECT * FROM parametros WHERE id_instituto = :id_instituto");
+                                $stmt_parametros->bindParam(':id_instituto', $id_instituto, PDO::PARAM_INT);
+                                $stmt_parametros->execute();
+                                $parametros = $stmt_parametros->fetch(PDO::FETCH_ASSOC);
 
-                                    if ($porcentaje_asistencia >= $parametros['asistencias_promocion']) {
-                                        echo "Promoción";
-                                    } elseif ($porcentaje_asistencia >= $parametros['asistencias_regular']) {
-                                        echo "Regular";
-                                    } else {
-                                        echo "Libre";
-                                    }
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php
-                                    // condición de calificaciones
-                                    if (!empty($calificacion)) {
-                                        echo calcularCondicionCalificacion($calificacion, $parametros);
-                                    } else {
-                                        echo "No hay calificaciones";
-                                    }
-                                    ?>
-                                </td>
+                                if ($porcentaje_asistencia >= $parametros['asistencias_promocion']) {
+                                    echo "Promoción";
+                                } elseif ($porcentaje_asistencia >= $parametros['asistencias_regular']) {
+                                    echo "Regular";
+                                } else {
+                                    echo "Libre";
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                // condición calificaciones
+                                if (!empty($calificacion)) {
+                                    echo calcularCondicionCalificacion($calificacion, $parametros);
+                                } else {
+                                    echo "No hay calificaciones";
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                // mostrar condicion del final
+                                $stmt_parametros = $conn->prepare("SELECT * FROM parametros WHERE id_instituto = :id_instituto");
+                                $stmt_parametros->bindParam(':id_instituto', $id_instituto, PDO::PARAM_INT);
+                                $stmt_parametros->execute();
+                                $parametros = $stmt_parametros->fetch(PDO::FETCH_ASSOC);
+
+                                if ($calificacion['final'] >= $parametros['regular']) {
+                                    echo "Aprobado";
+                                } else {
+                                    echo "Desaprobado";
+                                }
+                                
+                                // para mostrar las notas del final
+                                /* 
+                                if (!empty($calificacion)) {
+                                    echo $calificacion['final'];
+                                } else {
+                                    echo "No hay calificaciones";
+                                }*/
+
+                                ?>
+                            </td>
                                 <td>
                                     <button type="button" onclick="darBaja(<?php echo $alumno['id_alumno']; ?>)">-</button>
                                 </td>
