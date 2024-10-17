@@ -1,0 +1,37 @@
+
+mostrar por pantalla.
+
+html de minimo 5 alumnos. 
+listado
+id, nombre, apellido, dni, edad, email.
+
+dos botones 
+    - ver notas: datos del alumno, y al menos, tres notas.
+    - notificar: simulo email. muestro una pantalla diciendo: el mail ha sido enviado a.. $email.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+clases:
+- alumno: 
+
+    funcion:
+        notificar
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+parcial (form post -> procesar.php)
+pantalla con un input
+y un boton enviar
+
+clases y en ese procesar.php 
+
+instanciemos cada clase, llamar algunas funciones (promedio, etc).
+
+use (nombre del trait)
