@@ -30,7 +30,7 @@ class Consulta {
 
     public function buscarPorAutor($autor) {
         foreach ($this->libros as $data) {
-            if ($data['autor'] === $autor) { 
+            if (stripos($data['autor'], $autor) !== false) { 
 
                 return new Libro($data['titulo'], $data['autor'], $data['anio'], $data['genero'], $data['codigo']);
             }

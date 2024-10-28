@@ -1,0 +1,46 @@
+Sistema de Gestión de Veterinarias
+Objetivo
+Desarrollar un sistema que permita gestionar información sobre animales en una veterinaria. El sistema debe permitir a los usuarios buscar información sobre diferentes tipos de animales, como perros y gatos, por su ID. Una vez encontrado el animal, el usuario podrá instanciar un nuevo objeto correspondiente (Perro o Gato) y acceder a sus propiedades.
+ 
+
+Requisitos
+
+Clases:
+Crea una clase base llamada Animal que contenga las propiedades comunes:
+id: Identificador único del animal.
+nombre: Nombre del animal.
+edad: Edad del animal.
+raza: Raza del animal.
+peso: Peso del animal.
+Crea dos clases hijas: Perro y Gato, que extiendan de la clase Animal.
+ 
+
+Clase Perro:
+Atributos:
+tamanio: Tamaño del perro (pequeño, mediano, grande).
+vacunas: Array que contiene las vacunas que ha recibido.
+Métodos:
+vacunar($vacuna): Método para agregar una vacuna al array de vacunas.
+mostrarVacunas(): Método para mostrar todas las vacunas que ha recibido.
+
+Clase Gato:
+Atributos:
+pelajeLargo: Booleano que indica si tiene pelaje largo o corto.
+comportamiento: Comportamiento típico (juguetón, tranquilo, etc.).
+Métodos:
+cambiarComportamiento($nuevoComportamiento): Método para cambiar el comportamiento del gato.
+mostrarComportamiento(): Método para mostrar el comportamiento actual del gato.
+ 
+
+Datos Predefinidos:
+Implementa un array con datos predefinidos que contenga información sobre al menos 20 animales (10 perros y 10 gatos).
+Funcionalidad:
+Implementa una función que permita buscar un animal por su ID en el array de datos.
+Una vez encontrado el animal, permite al usuario instanciar un nuevo objeto (Perro o Gato) utilizando los datos encontrados.
+
+Interfaz de Usuario:
+Crea un formulario simple donde los usuarios puedan ingresar el ID del animal para buscarlo.
+
+Ejemplo de Uso
+Cuando un usuario busque un animal por su ID, el sistema debe mostrar "Animal encontrado: [tipo] - [nombre]".
+Al instanciar el objeto, se debe mostrar información adicional como "Nuevo objeto creado: [raza], Peso: [peso] kg, tamaño, pelaje, etc.".

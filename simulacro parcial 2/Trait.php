@@ -8,14 +8,4 @@ trait notificar {
     }
 }
 
-
-
-
-/* parent::__construct 
-
-public function mostrarEmail($email){
-        return $email;
-
-    }*/
-
 ?>

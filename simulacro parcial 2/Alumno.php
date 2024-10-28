@@ -34,7 +34,6 @@ class Alumno {
     }
     
     public function mostrarNotas() {
-       
         $notasMateria = '';
         foreach ($this->notas as $materia => $nota) {
             $notasMateria .= "$materia: $nota - ";

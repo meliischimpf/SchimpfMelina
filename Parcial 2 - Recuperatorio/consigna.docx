@@ -1,0 +1,16 @@
+pantalla con tres botones.
+
+input busqueda por codigo/id
+
+procesar
+    procesar.php
+        instanciar los objetos del input por codigo y mostrar
+
+enviar
+    enviar.php
+        mostrar producto por id
+
+listar
+    listar.php
+        mostrar por codigo los productos solo de argentina
+
