@@ -93,7 +93,7 @@
         $db = new Database();
         $conn = $db->connect();
 
-        // Obtener institutos
+        // obtener institutos
         $stmt_institutos = $conn->prepare("SELECT id_instituto, nombre_instituto FROM instituto");
         $stmt_institutos->execute();
         $result_institutos = $stmt_institutos->fetchAll(PDO::FETCH_ASSOC);
@@ -103,7 +103,7 @@
         if (isset($_POST['id_instituto']) && !empty($_POST['id_instituto'])) {
             $id_instituto = $_POST['id_instituto'];
 
-            // Obtener materias según el instituto seleccionado
+            // obtener materias según instituto
             $stmt_materias = $conn->prepare("SELECT id_materia, nombre_materia FROM materias WHERE id_instituto = :id_instituto");
             $stmt_materias->bindParam(':id_instituto', $id_instituto, PDO::PARAM_INT);
             $stmt_materias->execute();
@@ -159,7 +159,7 @@
             $stmt_alumnos->execute();
             $alumnos = $stmt_alumnos->fetchAll(PDO::FETCH_ASSOC);
 
-            // Lógica para manejar las asistencias
+            // asistencias
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (isset($_POST['asistencia'])) {
                     foreach ($_POST['asistencia'] as $id_alumno => $presente) {
@@ -204,7 +204,7 @@
         <?php endif; ?>
 
     
-            </div>
+    </div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sonner@latest/dist/sonner.umd.js"></script>

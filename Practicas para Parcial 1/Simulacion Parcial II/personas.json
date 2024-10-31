@@ -1,0 +1,560 @@
+[{
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Fatih",
+      "last": "Nalbantoğlu"
+    },
+    "location": {
+      "street": {
+        "number": 6813,
+        "name": "Mevlana Cd"
+      },
+      "city": "Adıyaman",
+      "state": "Bayburt",
+      "country": "Turkey",
+      "postcode": 82032,
+      "coordinates": {
+        "latitude": "71.7834",
+        "longitude": "-14.4769"
+      },
+      "timezone": {
+        "offset": "-3:00",
+        "description": "Brazil, Buenos Aires, Georgetown"
+      }
+    },
+    "email": "fatih.nalbantoglu@example.com",
+    "login": {
+      "uuid": "6a5ae0dc-0626-40cf-8c60-9a395d2d9ef9",
+      "username": "greenbear612",
+      "password": "secure",
+      "salt": "axlAaV0I",
+      "md5": "258c73ab4c1f9113a9bd4b0c89e2d612",
+      "sha1": "c8eeaebe9099eb3b15ff9081029ad882faa5f796",
+      "sha256": "08fd9f1aa769235c7d084dff2a5424f7339e162c5b3f295b78583bd9d1b2b91d"
+    },
+    "dob": {
+      "date": "1980-09-30T17:25:03.926Z",
+      "age": 43
+    },
+    "registered": {
+      "date": "2006-01-20T19:30:44.889Z",
+      "age": 18
+    },
+    "phone": "(381)-859-9545",
+    "cell": "(188)-241-4829",
+    "id": {
+      "name": "",
+      "value": null
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/61.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/61.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/61.jpg"
+    },
+    "nat": "TR"
+  },
+  {
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Jayden",
+      "last": "Park"
+    },
+    "location": {
+      "street": {
+        "number": 3253,
+        "name": "West Ave"
+      },
+      "city": "Stratford",
+      "state": "Yukon",
+      "country": "Canada",
+      "postcode": "E6B 3N0",
+      "coordinates": {
+        "latitude": "-12.1645",
+        "longitude": "22.6267"
+      },
+      "timezone": {
+        "offset": "-4:00",
+        "description": "Atlantic Time (Canada), Caracas, La Paz"
+      }
+    },
+    "email": "jayden.park@example.com",
+    "login": {
+      "uuid": "1de4726e-3e20-47b4-9fdf-e48cbd9a5f2e",
+      "username": "blackswan590",
+      "password": "zaphod",
+      "salt": "rFVQ1JPw",
+      "md5": "e0c8ff246d50357e17379b4617e6df8d",
+      "sha1": "ac915be7ad352319e44f81025053455d658b805b",
+      "sha256": "8658f3aed3bd3cccdc6f3536bbd4635cc927adba4d21fc0992e4610618580739"
+    },
+    "dob": {
+      "date": "1973-07-21T05:15:20.466Z",
+      "age": 50
+    },
+    "registered": {
+      "date": "2016-11-05T18:04:00.335Z",
+      "age": 7
+    },
+    "phone": "J71 H47-6105",
+    "cell": "Q69 V94-1546",
+    "id": {
+      "name": "SIN",
+      "value": "381299353"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/74.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/74.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/74.jpg"
+    },
+    "nat": "CA"
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Mrs",
+      "first": "Rachel",
+      "last": "Caldwell"
+    },
+    "location": {
+      "street": {
+        "number": 2769,
+        "name": "Park Lane"
+      },
+      "city": "Bristol",
+      "state": "Buckinghamshire",
+      "country": "United Kingdom",
+      "postcode": "P4C 4HS",
+      "coordinates": {
+        "latitude": "8.0098",
+        "longitude": "3.3236"
+      },
+      "timezone": {
+        "offset": "-3:30",
+        "description": "Newfoundland"
+      }
+    },
+    "email": "rachel.caldwell@example.com",
+    "login": {
+      "uuid": "bb5b147c-a108-49ae-8e72-87bfe87d02f1",
+      "username": "lazyswan954",
+      "password": "dolemite",
+      "salt": "ScykuO93",
+      "md5": "1dc5f569dea3bb5b81a881010a853766",
+      "sha1": "b1816190d3e2b26bdd830577d2c55c4d934c2580",
+      "sha256": "9488377d4b783879f33c23312c0928541d37363fe383fdfa8e984c014d5537f4"
+    },
+    "dob": {
+      "date": "1953-04-13T05:27:39.066Z",
+      "age": 71
+    },
+    "registered": {
+      "date": "2006-02-26T04:22:18.526Z",
+      "age": 18
+    },
+    "phone": "016977 02477",
+    "cell": "07060 021658",
+    "id": {
+      "name": "NINO",
+      "value": "ZT 36 59 77 G"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/74.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/74.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/74.jpg"
+    },
+    "nat": "GB"
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Ms",
+      "first": "فاطمه",
+      "last": "سهيلي راد"
+    },
+    "location": {
+      "street": {
+        "number": 1604,
+        "name": "وحدت اسلامی"
+      },
+      "city": "سنندج",
+      "state": "اردبیل",
+      "country": "Iran",
+      "postcode": 71614,
+      "coordinates": {
+        "latitude": "-10.5056",
+        "longitude": "-71.5166"
+      },
+      "timezone": {
+        "offset": "+4:00",
+        "description": "Abu Dhabi, Muscat, Baku, Tbilisi"
+      }
+    },
+    "email": "ftmh.shylyrd@example.com",
+    "login": {
+      "uuid": "b762f051-d5b8-467d-949a-a5e7e9df3487",
+      "username": "brownostrich330",
+      "password": "kelley",
+      "salt": "XiSy8Oks",
+      "md5": "90588d1fc832ac710fb4e071fef830c9",
+      "sha1": "1540f745884117af838184a93777c79f42a34938",
+      "sha256": "3f7dc8dcad57fcf55cde5ced2c8dbbd1cd56960040394acccd708b58b9c72f5c"
+    },
+    "dob": {
+      "date": "1980-08-24T18:03:08.537Z",
+      "age": 43
+    },
+    "registered": {
+      "date": "2010-04-04T17:41:04.600Z",
+      "age": 14
+    },
+    "phone": "085-78244722",
+    "cell": "0943-747-8648",
+    "id": {
+      "name": "",
+      "value": null
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/6.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/6.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/6.jpg"
+    },
+    "nat": "IR"
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Miss",
+      "first": "Renee",
+      "last": "Ramirez"
+    },
+    "location": {
+      "street": {
+        "number": 4963,
+        "name": "Shady Ln Dr"
+      },
+      "city": "Evansville",
+      "state": "Florida",
+      "country": "United States",
+      "postcode": 53006,
+      "coordinates": {
+        "latitude": "-47.9875",
+        "longitude": "-38.9941"
+      },
+      "timezone": {
+        "offset": "-3:00",
+        "description": "Brazil, Buenos Aires, Georgetown"
+      }
+    },
+    "email": "renee.ramirez@example.com",
+    "login": {
+      "uuid": "f2a69baf-b482-488d-abeb-66ee0af3d962",
+      "username": "purplerabbit930",
+      "password": "mittens",
+      "salt": "zZJx5AYZ",
+      "md5": "92f979b49c00c19e140826c25aefaebf",
+      "sha1": "cd8174597858133429b06c7b15eef2deee0fb182",
+      "sha256": "34f7302dfd19cb25e0c2efbb60de2ef5ec5e557a5ddf9518b1e756cc1a5ceb2f"
+    },
+    "dob": {
+      "date": "1964-04-30T20:29:32.102Z",
+      "age": 60
+    },
+    "registered": {
+      "date": "2019-05-11T03:12:49.076Z",
+      "age": 5
+    },
+    "phone": "(470) 272-0602",
+    "cell": "(629) 387-5919",
+    "id": {
+      "name": "SSN",
+      "value": "854-75-3526"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/93.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/93.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/93.jpg"
+    },
+    "nat": "US"
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Ms",
+      "first": "Jackie",
+      "last": "Coleman"
+    },
+    "location": {
+      "street": {
+        "number": 583,
+        "name": "Dane St"
+      },
+      "city": "Joliet",
+      "state": "Georgia",
+      "country": "United States",
+      "postcode": 93535,
+      "coordinates": {
+        "latitude": "19.4959",
+        "longitude": "-62.9550"
+      },
+      "timezone": {
+        "offset": "+9:00",
+        "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
+      }
+    },
+    "email": "jackie.coleman@example.com",
+    "login": {
+      "uuid": "85b8019e-bfad-462c-8070-c394151723ed",
+      "username": "orangeelephant185",
+      "password": "golfball",
+      "salt": "uzsGxSeM",
+      "md5": "31ad62e5537254f0035d9383649e85cf",
+      "sha1": "7cfa3c339183647dbdb21beda21bfc0be97599cf",
+      "sha256": "196f5be985aee3dabcb61f57d8f626c7a1ab6b7714a1a7ad0c002eadbf470b6a"
+    },
+    "dob": {
+      "date": "1990-01-21T14:50:46.690Z",
+      "age": 34
+    },
+    "registered": {
+      "date": "2007-04-01T04:15:02.521Z",
+      "age": 17
+    },
+    "phone": "(713) 469-4229",
+    "cell": "(956) 603-8094",
+    "id": {
+      "name": "SSN",
+      "value": "640-87-1902"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/1.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/1.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/1.jpg"
+    },
+    "nat": "US"
+  },
+  {
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Radoje",
+      "last": "Rajković"
+    },
+    "location": {
+      "street": {
+        "number": 4245,
+        "name": "Vuka Karadžića"
+      },
+      "city": "Velika Plana",
+      "state": "West Bačka",
+      "country": "Serbia",
+      "postcode": 37296,
+      "coordinates": {
+        "latitude": "5.3802",
+        "longitude": "39.8346"
+      },
+      "timezone": {
+        "offset": "-1:00",
+        "description": "Azores, Cape Verde Islands"
+      }
+    },
+    "email": "radoje.rajkovic@example.com",
+    "login": {
+      "uuid": "d15ea61c-355a-41ed-9d4d-b93fd5b140ae",
+      "username": "biggoose771",
+      "password": "impreza",
+      "salt": "UJzLu6tK",
+      "md5": "9e90e4e84d8f879eb6740b6c8cc82f0f",
+      "sha1": "e5a98a6f1dcb562b0bbdf3f8f239cc735e4849b5",
+      "sha256": "ca326863f19f1e4274252363527e7023410c2fd53aa6036f5919b9939b785d3c"
+    },
+    "dob": {
+      "date": "1969-06-14T05:56:52.694Z",
+      "age": 54
+    },
+    "registered": {
+      "date": "2015-06-08T10:50:48.354Z",
+      "age": 8
+    },
+    "phone": "025-5417-137",
+    "cell": "066-0040-020",
+    "id": {
+      "name": "SID",
+      "value": "697882455"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/35.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/35.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/35.jpg"
+    },
+    "nat": "RS"
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Miss",
+      "first": "Justine",
+      "last": "Lavoie"
+    },
+    "location": {
+      "street": {
+        "number": 3714,
+        "name": "Charles St"
+      },
+      "city": "Deer Lake",
+      "state": "Yukon",
+      "country": "Canada",
+      "postcode": "N8R 4S6",
+      "coordinates": {
+        "latitude": "2.5618",
+        "longitude": "-126.9625"
+      },
+      "timezone": {
+        "offset": "+4:30",
+        "description": "Kabul"
+      }
+    },
+    "email": "justine.lavoie@example.com",
+    "login": {
+      "uuid": "13d539c7-5a0b-4c4e-a7b7-bb51518c701d",
+      "username": "blackbird972",
+      "password": "films",
+      "salt": "dIQZhsqP",
+      "md5": "d2dce7a074cb23f29a7adf8800099655",
+      "sha1": "a8566c56fd4a743e12df27b5ef7d9969f90addc4",
+      "sha256": "863aaf8015ead937ff9b2e84b094a140ab4e84b8432014d2f7a89f7f6b4e6f94"
+    },
+    "dob": {
+      "date": "1946-03-29T02:39:09.060Z",
+      "age": 78
+    },
+    "registered": {
+      "date": "2015-05-20T03:22:28.055Z",
+      "age": 9
+    },
+    "phone": "N55 B84-8195",
+    "cell": "E94 W03-0944",
+    "id": {
+      "name": "SIN",
+      "value": "239105786"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/77.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/77.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/77.jpg"
+    },
+    "nat": "CA"
+  },
+  {
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Karol",
+      "last": "Myhrer"
+    },
+    "location": {
+      "street": {
+        "number": 5679,
+        "name": "Østgaards gate"
+      },
+      "city": "Follebu",
+      "state": "Rogaland",
+      "country": "Norway",
+      "postcode": "4887",
+      "coordinates": {
+        "latitude": "76.7663",
+        "longitude": "69.4286"
+      },
+      "timezone": {
+        "offset": "-3:00",
+        "description": "Brazil, Buenos Aires, Georgetown"
+      }
+    },
+    "email": "karol.myhrer@example.com",
+    "login": {
+      "uuid": "7f7ac0d7-8281-4cf2-9019-1cc6aa4f2c59",
+      "username": "goldenmeercat160",
+      "password": "arsenal",
+      "salt": "YvtENyed",
+      "md5": "09774511bcc846caa47ba29679cc2513",
+      "sha1": "793e3dcd06670a6e1489feb564729cd1cd17ad91",
+      "sha256": "81e09e6766ff6826044ee110c6e90e93302f6e8c9f20e6694d65058bc3864a87"
+    },
+    "dob": {
+      "date": "1987-08-27T19:48:02.225Z",
+      "age": 36
+    },
+    "registered": {
+      "date": "2009-06-13T22:37:33.030Z",
+      "age": 14
+    },
+    "phone": "63028150",
+    "cell": "42959629",
+    "id": {
+      "name": "FN",
+      "value": "27088705136"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/68.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/68.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/68.jpg"
+    },
+    "nat": "NO"
+  },
+  {
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Anton",
+      "last": "Knoll"
+    },
+    "location": {
+      "street": {
+        "number": 5106,
+        "name": "Mittelstraße"
+      },
+      "city": "Lahr/Schwarzwald",
+      "state": "Baden-Württemberg",
+      "country": "Germany",
+      "postcode": 19807,
+      "coordinates": {
+        "latitude": "-37.7569",
+        "longitude": "132.1344"
+      },
+      "timezone": {
+        "offset": "-3:30",
+        "description": "Newfoundland"
+      }
+    },
+    "email": "anton.knoll@example.com",
+    "login": {
+      "uuid": "290823e6-c23e-4f59-8291-58178c1a5492",
+      "username": "orangefish708",
+      "password": "facial",
+      "salt": "l7vtAP6f",
+      "md5": "47c79b7f29ecbec006b3f78a1f5b47e2",
+      "sha1": "86aa0817eb69cbaf92785d0f9fe8ebddb19a3f7f",
+      "sha256": "ba82b48f3bc75480bac7285b52a8a6cffd85e8a7ba5cf9e41615c891ae5ac052"
+    },
+    "dob": {
+      "date": "1991-08-08T07:15:22.669Z",
+      "age": 32
+    },
+    "registered": {
+      "date": "2002-07-15T18:26:35.168Z",
+      "age": 21
+    },
+    "phone": "0298-0097149",
+    "cell": "0172-8042928",
+    "id": {
+      "name": "SVNR",
+      "value": "26 080891 K 287"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/62.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/62.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/62.jpg"
+    },
+    "nat": "DE"
+  }]

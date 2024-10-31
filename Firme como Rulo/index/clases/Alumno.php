@@ -18,7 +18,7 @@ class Alumno {
         return $this->nombre;
     }
 
-    //registrar o eliminar asistencia
+    // registrar o eliminar asistencia
     public static function gestionarAsistencia($id_alumno, $id_materia, $presente) {
         
         require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/conexion.php';
@@ -106,7 +106,7 @@ class Alumno {
         }
     
         try {
-            // Verificar si el alumno existe
+            // verificar si el alumno existe
             $checkQuery = "SELECT COUNT(*) FROM alumno WHERE id_alumno = :id_alumno";
             $checkStmt = $conn->prepare($checkQuery);
             $checkStmt->bindParam(':id_alumno', $id_alumno, PDO::PARAM_INT);
@@ -118,7 +118,7 @@ class Alumno {
                 return false;
             }
     
-            // Eliminar el registro del alumno
+            // eliminar el registro
             $query = "DELETE FROM alumno WHERE id_alumno = :id_alumno";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':id_alumno', $id_alumno, PDO::PARAM_INT);
