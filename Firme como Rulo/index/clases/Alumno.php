@@ -1,5 +1,7 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/conexion.php';
+
 class Alumno {
     
     public function __construct(
@@ -18,10 +20,8 @@ class Alumno {
         return $this->nombre;
     }
 
-    // registrar o eliminar asistencia
+    // registra o elimina asistencia
     public static function gestionarAsistencia($id_alumno, $id_materia, $presente) {
-        
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/conexion.php';
 
         $db = new Database();
         $conn = $db->connect();
@@ -34,7 +34,7 @@ class Alumno {
                       VALUES (:id_alumno, :id_materia, :fecha_asistencia)
                       ON DUPLICATE KEY UPDATE fecha_asistencia = :fecha_asistencia"; // actualiza si existe
         } else {
-            // eliminar asistencia
+            // elimina asistencia
             $query = "DELETE FROM asistencias 
                       WHERE id_alumno = :id_alumno AND id_materia = :id_materia AND fecha_asistencia = :fecha_asistencia";
         }
@@ -47,9 +47,7 @@ class Alumno {
     }
     
 
-
     public static function gestionarNotas($id_alumno, $id_materia, $parcial1, $parcial2, $final) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/conexion.php';
     
         $db = new Database();
         $conn = $db->connect();
@@ -95,7 +93,6 @@ class Alumno {
 
     
     public static function darBaja($id_alumno) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/Firme como Rulo/index/conexion.php';
         
         $db = new Database();
         $conn = $db->connect();
@@ -106,7 +103,7 @@ class Alumno {
         }
     
         try {
-            // verificar si el alumno existe
+            // verifica si el alumno existe
             $checkQuery = "SELECT COUNT(*) FROM alumno WHERE id_alumno = :id_alumno";
             $checkStmt = $conn->prepare($checkQuery);
             $checkStmt->bindParam(':id_alumno', $id_alumno, PDO::PARAM_INT);
@@ -118,7 +115,7 @@ class Alumno {
                 return false;
             }
     
-            // eliminar el registro
+            // elimina el registro
             $query = "DELETE FROM alumno WHERE id_alumno = :id_alumno";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':id_alumno', $id_alumno, PDO::PARAM_INT);
@@ -130,6 +127,7 @@ class Alumno {
                 error_log("Error al ejecutar la consulta de eliminación.");
                 return false;
             }
+
         } catch (PDOException $e) {
             error_log("Error al dar de baja al alumno: " . $e->getMessage());
             return false;

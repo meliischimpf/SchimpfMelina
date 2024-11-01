@@ -186,7 +186,7 @@ if (isset($_POST['id_materia']) && !empty($_POST['id_materia'])) {
 
     // tabla
     if (!empty($alumnos)): 
-        // Obtener total de clases para mostrar en la tabla
+        // total de clases
         $stmt_total_clases = $conn->prepare("SELECT COUNT(DISTINCT fecha_asistencia) AS total_clases FROM asistencias WHERE id_materia = :id_materia");
         $stmt_total_clases->bindParam(':id_materia', $id_materia, PDO::PARAM_INT);
         $stmt_total_clases->execute();
@@ -266,7 +266,7 @@ if (isset($_POST['id_materia']) && !empty($_POST['id_materia'])) {
                                     echo "Desaprobado" . " - " . $calificacion['final'];
                                 }
                                 
-                                // para mostrar las notas del final
+                                //  notas del final
                                 /* 
                                 if (!empty($calificacion)) {
                                     echo $calificacion['final'];
